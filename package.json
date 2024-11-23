@@ -1,0 +1,30 @@
+{
+  "name": "cory-paeth",
+  "version": "1.0.0",
+  "description": "Single page site for Cory/Paeth",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Starling Digital",
+  "scripts": {
+    "dev": "gulp watch",
+    "build": "gulp build"
+  },
+  "dependencies": {
+    "browser-sync": "^2.27.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "7.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0",
+    "mozjpeg": "^8.0.0",
+    "optipng": "^3.0.0",
+    "svgo": "^2.8.0",
+    "sass": "^1.54.3"
+  }
+}

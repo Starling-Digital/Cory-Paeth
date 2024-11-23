@@ -1,0 +1,48 @@
+// ---------------------------------------------
+// ======---------------------------------======
+//  styles.scss
+// ======---------------------------------======
+// ---------------------------------------------
+
+// ====---------------====
+// Functions / Mixins
+// ====---------------====
+@use "./functions/functions";
+@use "./functions/mixins";
+
+// ====---------------====
+// Global - @layer global
+// ====---------------====
+@use "./global/setup"; // this should be before any other
+@use "./global/variables";
+@use "./global/reset";
+
+// ====---------------====
+// Composition
+// ====---------------====
+@use "./composition/type";
+@use "./composition/base";
+
+// ====---------------====
+// Utilities
+// ====---------------====
+@use "./utilities/text";
+@use "./utilities/wrappers";
+@use "./utilities/buttons";
+
+// ====---------------====
+// Blocks
+// ====---------------====
+@use "./blocks/page-nav";
+@use "./blocks/page-header";
+@use "./blocks/page-footer";
+
+// ====---------------====
+// Exceptions
+// ====---------------====
+// @use './exceptions/FILE_NAME'
+
+// ====---------------====
+// Vendor
+// ====---------------====
+// @use './vendor/FILE_NAME'
