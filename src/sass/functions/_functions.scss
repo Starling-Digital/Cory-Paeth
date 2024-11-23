@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:string";
 
 // ---------------------------------------------
 // ======---------------------------------======
@@ -52,7 +53,7 @@ $browser-context: 16; // Default
 	}
 
 	$pow: pow(10, $digits);
-	@return math.div(round($float * $pow), $pow);
+	@return math.div(math.round($float * $pow), $pow);
 }
 
 // ====---------------====
@@ -71,7 +72,7 @@ $browser-context: 16; // Default
 
 	$factor: math.div(1, ($max-vw - $min-vw)) * ($max-value - $min-value);
 
-	$calc-value: unquote(
+	$calc-value: string.unquote(
 		"#{ to-fixed($min-value - ($min-vw * $factor)) }rem + #{ to-fixed(100vw * $factor) }"
 	);
 

@@ -11,21 +11,33 @@
 	// ====---------------====
 	// Colors
 	// ====---------------====
-	--clr-primary: oklch(0.597 0.244 10.59);
-	--clr-secondary: oklch(0.568 0.211 253.06);
-	--clr-tertiary: oklch(0.59 0.185 20);
+	--clr-off-white: #feeaea;
+	--clr-red-100: #fdc2c2;
+	--clr-red-200: #cc7474;
+	--clr-red-300: #e93323;
+	--clr-red-400: #f90c0a;
+	--clr-red-500: #fa0b09;
+	// --clr-red-600: ;
+	// --clr-red-700: ;
+	--clr-red-800: #8e0000;
+	--clr-red-900: #820000;
 
-	--clr-background: oklch(1 0.01 251);
-	--clr-background-alt: oklch(0.69 0.09 253.06);
+	--clr-neutral-100: #fff;
+	--clr-neutral-400: #b3b3b3;
+	--clr-neutral-800: #333;
+	--clr-neutral-900: #000;
 
-	--clr-text: black;
-	--clr-link: var(--clr-secondary);
-	--clr-link-hover: color-mix(in oklab, var(--clr-secondary), black 40%);
+	--clr-background: var(--clr-neutral-900);
+	--clr-background-alt: var(--clr-neutral-800);
+
+	--clr-text: var(--clr-neutral-900);
+	--clr-link: var(--clr-red-500);
+	--clr-link-hover: var(--clr-red-900);
 
 	// ====---------------====
 	// Font familys
 	// ====---------------====
-	--ff-main: "Rubik", "Noto Emoji", sans-serif;
+	--ff-main: "Roboto", "Noto Emoji", sans-serif;
 	--ff-alt: "Rubik", "Noto Emoji", sans-serif;
 
 	// ====---------------====
@@ -36,14 +48,16 @@
 	// @link https://utopia.fyi/type/calculator?c=375,18,1.2,1140,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l
 	// ====---------------====
 
-	--step--2: clamp(0.78rem, 0.69rem + 0.37vw, 0.96rem);
-	--step--1: clamp(0.94rem, 0.81rem + 0.55vw, 1.2rem);
-	--step-0: clamp(1.13rem, 0.94rem + 0.78vw, 1.5rem);
-	--step-1: clamp(1.35rem, 1.09rem + 1.1vw, 1.88rem);
-	--step-2: clamp(1.62rem, 1.27rem + 1.51vw, 2.34rem);
-	--step-3: clamp(1.94rem, 1.46rem + 2.06vw, 2.93rem);
-	--step-4: clamp(2.33rem, 1.68rem + 2.78vw, 3.66rem);
-	--step-5: clamp(2.8rem, 1.93rem + 3.72vw, 4.58rem);
+	--step--2: #{flClamp(18, 10)};
+	--step--1: #{flClamp(24, 16)};
+	--step-0: #{flClamp(38, 18)};
+	--step-1: #{flClamp(45, 20)};
+	// --step-2: #{flClamp()};
+	// --step-3: #{flClamp()};
+	// --step-4: #{flClamp()};
+	// --step-5: #{flClamp()};
+	--step-6: #{flClamp(240, 52)};
+	--step-7: #{flClamp(287, 98)};
 
 	// ====---------------====
 	// Fluid sizing
