@@ -3,39 +3,44 @@
 //  styles.scss
 // ======---------------------------------======
 // ---------------------------------------------
+@use "sass:meta";
 
-// ====---------------====
-// Functions / Mixins
-// ====---------------====
-@use "./functions/functions";
-@use "./functions/mixins";
-
+@layer reset, vendor, global, composition, blocks, utilities;
 // ====---------------====
 // Global - @layer global
 // ====---------------====
-@use "./global/setup"; // this should be before any other
-@use "./global/variables";
-@use "./global/reset";
+@layer reset {
+	@include meta.load-css("./global/reset");
+}
+@layer global {
+	@include meta.load-css("./global/variables");
+}
 
 // ====---------------====
 // Composition
 // ====---------------====
-@use "./composition/type";
-@use "./composition/base";
+@layer composition {
+	@include meta.load-css("./composition/type");
+	@include meta.load-css("./composition/base");
+}
 
 // ====---------------====
 // Utilities
 // ====---------------====
-@use "./utilities/text";
-@use "./utilities/wrappers";
-@use "./utilities/buttons";
+@layer utilities {
+	@include meta.load-css("./utilities/text");
+	@include meta.load-css("./utilities/wrappers");
+	@include meta.load-css("./utilities/buttons");
+}
 
 // ====---------------====
 // Blocks
 // ====---------------====
-@use "./blocks/page-nav";
-@use "./blocks/page-header";
-@use "./blocks/page-footer";
+@layer blocks {
+	@include meta.load-css("./blocks/page-nav");
+	@include meta.load-css("./blocks/page-header");
+	@include meta.load-css("./blocks/page-footer");
+}
 
 // ====---------------====
 // Exceptions

@@ -4,99 +4,96 @@
 // ======---------------------------------======
 // ---------------------------------------------
 
+@use "../functions/functions" as *;
 @use "../functions/mixins" as *;
 
-@layer composition {
-	// ====---------------====
-	// Headings
-	// ====---------------====
-	:where(h1, h2, h3) {
-		color: var(--clr-primary);
+// ====---------------====
+// Headings
+// ====---------------====
+:where(h1, h2, h3) {
+	color: var(--clr-primary);
+}
+
+:where(h4, h5, h6) {
+	color: var(--clr-secondary);
+}
+
+h1 {
+	font-size: var(--step-5);
+}
+
+h2 {
+	font-size: var(--step-4);
+}
+
+h3 {
+	font-size: var(--step-3);
+}
+
+h4 {
+	font-size: var(--step-2);
+}
+
+h5 {
+	font-size: var(--step-1);
+}
+
+h6 {
+	font-size: var(--step-0);
+}
+
+// ====---------------====
+// Links
+// ====---------------====
+a {
+	color: var(--clr-link);
+
+	text-underline-offset: 0.2em;
+	text-decoration-thickness: 0.1em;
+
+	&:hover,
+	&:focus {
+		color: var(--clr-link-hover);
 	}
+}
 
-	:where(h4, h5, h6) {
-		color: var(--clr-secondary);
-	}
+.skip-content {
+	width: 1px;
+	height: 1px;
 
-	h1 {
-		font-size: var(--step-5);
-	}
+	overflow: hidden;
+	position: absolute;
 
-	h2 {
-		font-size: var(--step-4);
-	}
+	margin: -1px;
+	padding: 1rem 2rem;
 
-	h3 {
-		font-size: var(--step-3);
-	}
+	background-color: var(--clr-background);
+	border: 0.3rem solid var(--clr-link);
+	clip: rect(0 0 0 0);
 
-	h4 {
-		font-size: var(--step-2);
-	}
+	color: var(--clr-text);
+	white-space: nowrap;
+	text-decoration: none;
 
-	h5 {
-		font-size: var(--step-1);
-	}
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
-	h6 {
-		font-size: var(--step-0);
-	}
+	&:focus {
+		width: auto;
+		height: auto;
 
-	// ====---------------====
-	// Links
-	// ====---------------====
-	a {
-		color: var(--clr-link);
-
-		text-underline-offset: 0.2em;
-		text-decoration-thickness: 0.1em;
-
-		&:hover,
-		&:focus {
-			color: var(--clr-link-hover);
-		}
-	}
-
-	.skip-content {
-		width: 1px;
-		height: 1px;
-
-		overflow: hidden;
+		overflow: visible;
 		position: absolute;
+		z-index: 1;
+		left: 2rem;
+		top: 2rem;
 
-		margin: -1px;
-		padding: 1rem 2rem;
+		margin: 0;
 
-		background-color: var(--clr-background);
-		border: 0.3rem solid var(--clr-link);
-		clip: rect(0 0 0 0);
-
-		color: var(--clr-text);
-		white-space: nowrap;
-		text-decoration: none;
-
-		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-
-		&:focus {
-			width: auto;
-			height: auto;
-
-			overflow: visible;
-			position: absolute;
-			z-index: 1;
-			left: 2rem;
-			top: 2rem;
-
-			margin: 0;
-
-			clip: auto;
-		}
-
-		&:focus:hover {
-			background: var(--clr-background);
-			border-color: var(--clr-link-hover);
-		}
+		clip: auto;
 	}
 
-	// end layer
+	&:focus:hover {
+		background: var(--clr-background);
+		border-color: var(--clr-link-hover);
+	}
 }

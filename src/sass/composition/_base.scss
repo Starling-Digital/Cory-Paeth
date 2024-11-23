@@ -4,16 +4,15 @@
 // ======---------------------------------======
 // ---------------------------------------------
 
-@layer composition {
-	.flow {
-		> * + * {
-			margin-block-start: var(--space-s);
-		}
+@use "../functions/functions" as *;
+@use "../functions/mixins" as *;
 
-		:where(h1, h2, h3, h4, h5, h6) + p {
-			margin-block-start: var(--space-3xs);
-		}
+.flow {
+	> * + * {
+		margin-block-start: var(--space-s);
 	}
 
-	// end layer
+	:where(h1, h2, h3, h4, h5, h6) + p {
+		margin-block-start: var(--space-3xs);
+	}
 }

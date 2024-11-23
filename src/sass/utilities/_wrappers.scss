@@ -4,19 +4,18 @@
 // ======---------------------------------======
 // ---------------------------------------------
 
-@layer utilities {
-	.wrapper {
-		padding-block: var(--wrapper-block, var(--space-m));
-		padding-inline: var(--wrapper-fluid);
-	}
+@use "../functions/functions" as *;
+@use "../functions/mixins" as *;
 
-	.wrapper-block {
-		padding-block: var(--wrapper-block, var(--space-m));
-	}
+.wrapper {
+	padding-block: var(--wrapper-block, var(--space-m));
+	padding-inline: var(--wrapper-fluid);
+}
 
-	.wrapper-inline {
-		padding-inline: var(--wrapper-fluid);
-	}
+.wrapper-block {
+	padding-block: var(--wrapper-block, var(--space-m));
+}
 
-	// end layer
+.wrapper-inline {
+	padding-inline: var(--wrapper-fluid);
 }
