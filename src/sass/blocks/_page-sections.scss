@@ -79,17 +79,27 @@
 }
 
 .section-excellence {
+	padding-bottom: 0;
+	--grid-rows: var(--header)
+		calc((100vh - var(--header) - var(--footer)) / 3)
+		calc((100vh - var(--header) - var(--footer)) / 3)
+		calc((100vh - var(--header) - var(--footer)) / 3) var(--footer);
+
 	.content {
 		grid-column: 2 / 4;
-		grid-row: 2;
+		grid-row: 2 / 5;
 	}
 
 	.image {
 		max-width: rem(445);
 		grid-column: 2 / 4;
-		grid-row: 2;
+		grid-row: 3/ 5;
 		align-self: end;
 		justify-self: end;
+
+		img {
+			object-fit: contain;
+		}
 	}
 
 	h2 {
