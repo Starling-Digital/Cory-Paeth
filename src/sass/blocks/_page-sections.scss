@@ -267,6 +267,7 @@ body:has(.modal.js-active) {
 
 .modal {
 	max-width: 1058px;
+	width: 100%;
 	display: flex;
 	align-items: start;
 	gap: 1rem;
@@ -284,6 +285,10 @@ body:has(.modal.js-active) {
 
 	@include tablet-max {
 		display: block;
+	}
+
+	> div {
+		flex-grow: 1;
 	}
 
 	.close {

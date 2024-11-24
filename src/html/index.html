@@ -67,11 +67,31 @@
 			</section>
 		</main>
 		<div id="modal-nutshell" class="modal">
-			<p>CORY/PAETH is a scientific communications agency specializing in educational strategy and development for the pharmaceutical and biotechnology industries. Whether market
-				leaders or
-				budding start-ups, our clients come to us when they have a tough nut to crack. Our veteran team of experts craft creative training tools that are accessible, focused, and
-				engaging
-				— drawing OOHs and AHs while delivering AH-HAs.</p>
+			<div>
+				<p>CORY/PAETH is a scientific communications agency specializing in educational strategy and development for the pharmaceutical and biotechnology industries. Whether market
+					leaders or
+					budding start-ups, our clients come to us when they have a tough nut to crack. Our veteran team of experts craft creative training tools that are accessible, focused, and
+					engaging
+					— drawing OOHs and AHs while delivering AH-HAs.</p>
+			</div>
+			<button class="close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="none" viewBox="0 0 75 75">
+					<g clip-path="url(#modal-close-path)">
+						<path fill="#333" d="M37.5 74.46c20.434 0 37-16.565 37-37 0-20.434-16.566-37-37-37s-37 16.566-37 37c0 20.435 16.566 37 37 37Z" />
+						<path stroke="#fff" stroke-miterlimit="10" stroke-width="2" d="m25.41 25.37 24.18 24.18M49.59 25.37 25.41 49.55" />
+					</g>
+					<defs>
+						<clipPath id="modal-close-path">
+							<path fill="#fff" d="M.5.46h74v74H.5z" />
+						</clipPath>
+					</defs>
+				</svg>
+			</button>
+		</div>
+		<div id="modal-bell" class="modal">
+			<div>
+				<p>EMAIL US</p>
+			</div>
 			<button class="close">
 				<svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="none" viewBox="0 0 75 75">
 					<g clip-path="url(#modal-close-path)">
@@ -117,7 +137,7 @@
 					</span>
 					<span>In a nutshell</span>
 				</button>
-				<a href="mailto:email@email.com" class="btn btn--icon">
+				<button class="btn btn--icon" data-toggle="modal" aria-controls="modal-bell">
 					<span class="icon">
 						<svg xmlns="http://www.w3.org/2000/svg" width="97" height="66" fill="none" viewBox="0 0 97 66" aria-hidden="true">
 							<path fill="var(--icon-color-1)"
@@ -137,7 +157,7 @@
 						</svg>
 					</span>
 					<span>Ring for service</span>
-				</a>
+				</button>
 			</div>
 			<p>
 				<script>

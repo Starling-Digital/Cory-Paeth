@@ -34,12 +34,19 @@ function getCompProp(compProp) {
 // ====---------------====
 const headerHeight = document.querySelector("#page-header").offsetHeight
 const footerHeight = document.querySelector("#page-footer").offsetHeight
-if (headerHeight && body) {
-	body.style.setProperty("--header-height", `${headerHeight}px`)
+function setSizing() {
+	if (headerHeight && body) {
+		body.style.setProperty("--header-height", `${headerHeight}px`)
+	}
+	if (footerHeight && body) {
+		body.style.setProperty("--footer-height", `${footerHeight}px`)
+	}
 }
-if (footerHeight && body) {
-	body.style.setProperty("--footer-height", `${footerHeight}px`)
-}
+setSizing()
+
+window.addEventListener("resize", () => {
+	setSizing()
+})
 
 // ====---------------====
 // Trigger new section
@@ -80,17 +87,26 @@ document.querySelector("#main-content").addEventListener("scroll", () => {
 // ====---------------====
 const modalNuts = document.querySelectorAll("[data-toggle='modal']")
 if (modalNuts) {
+	function closeAllModals() {
+		modalNuts.forEach(modalNut => {
+			const modalNutModal = document.getElementById(
+				modalNut.getAttribute("aria-controls")
+			)
+			modalNutModal.classList.remove("js-active")
+		})
+	}
 	modalNuts.forEach(modalNut => {
 		const modalNutModal = document.getElementById(
 			modalNut.getAttribute("aria-controls")
 		)
+
 		modalNut.addEventListener("click", e => {
 			e.preventDefault()
+			closeAllModals()
 			modalNutModal.classList.toggle("js-active")
 		})
 
 		modalNutModal.querySelector(".close").addEventListener("click", e => {
-			console.log("CLICK")
 			e.preventDefault()
 			modalNutModal.classList.remove("js-active")
 		})
