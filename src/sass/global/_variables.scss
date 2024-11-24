@@ -24,6 +24,9 @@
 
 	--clr-neutral-100: #fff;
 	--clr-neutral-400: #b3b3b3;
+	--clr-neutral-500: #999;
+	--clr-neutral-600: #777;
+	--clr-neutral-700: #555;
 	--clr-neutral-800: #333;
 	--clr-neutral-900: #000;
 
@@ -48,16 +51,18 @@
 	// @link https://utopia.fyi/type/calculator?c=375,18,1.2,1140,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l
 	// ====---------------====
 
-	--step--2: #{flClamp(18, 10)};
-	--step--1: #{flClamp(24, 16)};
-	--step-0: #{flClamp(38, 18)};
-	--step-1: #{flClamp(45, 20)};
+	--step--2: #{flClamp(10, 18)};
+	--step--1: #{flClamp(16, 24)};
+	--step-0: #{flClamp(18, 38)};
+	--step-1: #{flClamp(20, 45)};
 	// --step-2: #{flClamp()};
 	// --step-3: #{flClamp()};
 	// --step-4: #{flClamp()};
 	// --step-5: #{flClamp()};
-	--step-6: #{flClamp(240, 52)};
-	--step-7: #{flClamp(287, 98)};
+	// --step-6: #{flClamp(52, 240)};
+	// --step-7: #{flClamp(98, 287)};
+	--step-6: #{flClamp(52, 220)};
+	--step-7: #{flClamp(98, 267)};
 
 	// ====---------------====
 	// Fluid sizing
@@ -81,9 +86,10 @@
 	// Widths / Wrappers
 	// ====---------------====
 	--page-max-width: 90rem;
+	--page-wrapper-pad: #{flClamp(20, 120)};
 	--wrapper-fluid: max(
-		var(--space-s),
-		(100% - (var(--page-max-width) - (var(--space-s) * 2))) / 2
+		var(--page-wrapper-pad),
+		(100% - (var(--page-max-width) - var(--page-wrapper-pad) * 2)) / 2
 	);
 
 	// ===------ Min width vars ------===

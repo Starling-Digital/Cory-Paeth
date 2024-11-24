@@ -1,0 +1,73 @@
+// ---------------------------------------------
+// ======---------------------------------======
+//  Buttons
+// ======---------------------------------======
+// ---------------------------------------------
+
+@use "../functions/functions" as *;
+@use "../functions/mixins" as *;
+
+.btn {
+	--btn-bg: var(--clr-neutral-800);
+	--btn-clr: var(--clr-neutral-100);
+	padding: flClamp(7, 14) flClamp(14, 32);
+
+	border: 0;
+	background: var(--btn-bg);
+	border-radius: 2em;
+
+	color: var(--btn-clr);
+	font-size: #{flClamp(17, 38)};
+	text-decoration: none;
+
+	transition: background 0.1s ease-in;
+
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		--btn-bg: var(--clr-neutral-700);
+
+		color: var(--btn-clr);
+	}
+}
+
+// ====---------------====
+// Types
+// ====---------------====
+.btn--icon {
+	--icon-color-1: var(--clr-neutral-100);
+	--icon-color-2: var(--clr-neutral-100);
+
+	display: flex;
+	align-items: center;
+	gap: rem(10);
+
+	svg {
+		max-width: flClamp(42, 96);
+		max-height: flClamp(28, 64);
+
+		flex: 1;
+	}
+}
+
+// ====---------------====
+// Colors
+// ====---------------====
+.btn--red {
+	--btn-bg: var(--clr-red-100);
+	--btn-clr: var(--clr-neutral-900);
+	--icon-color-1: var(--clr-red-900);
+	--icon-color-2: var(--clr-off-white);
+
+	&:hover,
+	&:focus {
+		--btn-bg: var(--clr-red-800);
+	}
+}
+
+.btn-wrapper {
+	display: grid;
+	place-items: center;
+	gap: var(--space-s);
+}

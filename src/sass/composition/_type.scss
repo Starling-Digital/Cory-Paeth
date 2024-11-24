@@ -10,6 +10,13 @@
 // ====---------------====
 // Headings
 // ====---------------====
+h1,
+h2,
+h3 {
+	font-family: var(--ff-alt);
+	letter-spacing: -0.05em;
+}
+
 h1 {
 	font-size: var(--step-5);
 }
@@ -88,4 +95,7 @@ a {
 		background: var(--clr-background);
 		border-color: var(--clr-link-hover);
 	}
+}
+
+.list-inline {
 }

@@ -8,12 +8,12 @@
 @use "../functions/mixins" as *;
 
 .wrapper {
-	padding-block: var(--wrapper-block, var(--space-m));
+	padding-block: var(--page-wrapper-pad) 0;
 	padding-inline: var(--wrapper-fluid);
 }
 
 .wrapper-block {
-	padding-block: var(--wrapper-block, var(--space-m));
+	padding-block: var(--page-wrapper-pad, var(--space-m));
 }
 
 .wrapper-inline {

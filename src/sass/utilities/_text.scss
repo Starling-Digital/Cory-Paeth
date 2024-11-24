@@ -46,10 +46,18 @@
 }
 
 .list-inline {
-	display: flex;
-	gap: var(--space-s);
+	@include desktop-min {
+		display: flex;
+		align-items: center;
 
-	padding-inline-start: 0;
+		li {
+			line-height: 1;
+		}
 
-	list-style: none;
+		li + li {
+			margin-inline-start: 0.5rem;
+			padding-inline-start: 0.5rem;
+			border-inline-start: 1px solid var(--clr-red-400);
+		}
+	}
 }

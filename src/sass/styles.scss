@@ -20,6 +20,7 @@
 // Composition
 // ====---------------====
 @layer composition {
+	@include meta.load-css("./composition/buttons");
 	@include meta.load-css("./composition/type");
 	@include meta.load-css("./composition/base");
 }
@@ -30,16 +31,13 @@
 @layer utilities {
 	@include meta.load-css("./utilities/text");
 	@include meta.load-css("./utilities/wrappers");
-	@include meta.load-css("./utilities/buttons");
 }
 
 // ====---------------====
 // Blocks
 // ====---------------====
 @layer blocks {
-	@include meta.load-css("./blocks/page-nav");
-	@include meta.load-css("./blocks/page-header");
-	@include meta.load-css("./blocks/page-footer");
+	@include meta.load-css("./blocks/page-sections");
 }
 
 // ====---------------====

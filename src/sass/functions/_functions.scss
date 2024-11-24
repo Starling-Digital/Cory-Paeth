@@ -63,7 +63,7 @@ $browser-context: 16; // Default
 	$min-value-in,
 	$max-value-in,
 	$min-vw-in: 375,
-	$max-vw-in: 1440
+	$max-vw-in: 2000
 ) {
 	$min-value: math.div($min-value-in, $browser-context);
 	$max-value: math.div($max-value-in, $browser-context);
