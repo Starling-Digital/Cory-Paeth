@@ -63,8 +63,11 @@
 	}
 
 	.image {
+		justify-self: center;
+		display: grid;
+
 		img {
-			max-width: flClamp(25, 50);
+			max-width: flClamp(40, 72);
 		}
 	}
 
@@ -73,20 +76,16 @@
 			calc((100vh - var(--header) - var(--footer)) / 3)
 			calc((100vh - var(--header) - var(--footer)) / 3)
 			calc((100vh - var(--header) - var(--footer)) / 3) var(--footer);
+
 		.content {
 			grid-column: 2;
 			grid-row: 2;
 		}
 
 		.image {
-			display: grid;
 			place-items: center;
 			grid-column: 2;
 			grid-row: 4 / -1;
-
-			img {
-				max-width: flClamp(40, 65);
-			}
 		}
 	}
 
@@ -103,14 +102,13 @@
 	}
 }
 body:has([data-in-view="true"].section-simple) {
-	.section-simple {
-	}
-
 	#page-footer {
-		grid-row: 3 / -1;
+		@include tablet-max {
+			grid-row: 3 / -1;
 
-		p {
-			align-self: end;
+			p {
+				align-self: end;
+			}
 		}
 	}
 }
