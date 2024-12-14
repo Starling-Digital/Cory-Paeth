@@ -17,25 +17,58 @@
 	}
 }
 
-body {
+html {
 	height: 100vh;
+}
+
+body {
+	--page-height: 100%;
+	--header: var(--header-height, auto);
+	--footer: var(--footer-height, auto);
+	--logo-width: #{flClamp(152, 311)};
+	--grid-cols: var(--page-wrapper-pad) 1fr var(--page-wrapper-pad);
+	--grid-rows: var(--header) 1fr 1fr var(--footer);
+
+	height: 100%;
 	overflow: hidden;
+
+	@media (max-height: 650px) {
+		--page-height: calc(100vh - 78px);
+		// --footer: 200;
+	}
+}
+
+body:has(.section-simple[data-in-view="true"]) {
+	@media (max-height: 650px) {
+		--footer: var(--footer-height, auto);
+	}
+}
+
+.page-wrapper {
+	height: 100%;
+
+	overflow-y: scroll;
+	scrollbar-width: none;
+	scroll-snap-points-y: repeat(100vh);
+	scroll-snap-type: y mandatory;
 }
 
 // ====---------------====
 // Page grid
 // ====---------------====
 .page-grid {
+	--page-height: 100vh;
 	--header: var(--header-height, auto);
 	--footer: var(--footer-height, auto);
 	--logo-width: #{flClamp(152, 311)};
 	--grid-cols: var(--page-wrapper-pad) 1fr var(--page-wrapper-pad);
 	--grid-rows: var(--header)
-		calc((100vh - var(--header) - var(--footer)) / 2)
-		calc((100vh - var(--header) - var(--footer)) / 2) var(--footer);
+		calc((var(--page-height) - var(--header) - var(--footer)) / 2)
+		calc((var(--page-height) - var(--header) - var(--footer)) / 2)
+		var(--footer);
 	width: 100%;
-	height: 100vh;
-	max-height: 100vh;
+	height: var(--page-height);
+	max-height: var(--page-height);
 
 	display: grid;
 	grid-template-columns: var(--grid-cols);
@@ -51,22 +84,20 @@ body {
 	}
 }
 
-#page-header {
+.page-header {
 	grid-column: 2;
 	grid-row: 1;
+	min-height: 100px;
 	max-height: 140px;
+	display: grid;
+	justify-content: end;
 
 	position: relative;
 	z-index: 200;
-	padding-block-start: var(--page-wrapper-pad);
+	padding-block-start: flClamp(16, 48);
 
-	@include desktop-max {
-		display: grid;
-		justify-content: end;
-	}
-
-	@include tablet-min {
-		grid-column: 3;
+	@media (max-height: 650px) {
+		min-height: 70px;
 	}
 
 	svg {
@@ -99,11 +130,12 @@ body {
 	}
 }
 
-#page-footer {
+.page-footer {
 	--footer-text-color: var(--clr-neutral-400);
 	grid-column: 1 / -1;
 	grid-row: 4;
 	display: grid;
+	grid-template-columns: 1fr;
 	place-items: center;
 	gap: rem(24);
 
@@ -116,13 +148,20 @@ body {
 	font-size: var(--step--2);
 
 	@include tablet-max {
+		grid-row: 4;
+
 		p {
 			margin-block-start: 3rem;
+
+			grid-column: 1;
+			grid-row: 2;
 		}
 	}
 
-	@include tablet-min {
-		grid-row: 3;
+	@media (max-height: 650px) {
+		p {
+			margin-block-start: 1rem;
+		}
 	}
 }
 
@@ -130,6 +169,8 @@ body {
 	display: grid;
 	justify-content: center;
 	gap: rem(10);
+	grid-column: 1;
+	grid-row: 1;
 
 	@include tablet-min {
 		display: flex;

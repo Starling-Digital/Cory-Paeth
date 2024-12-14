@@ -5,6 +5,7 @@
 //  Mixins
 // ======---------------------------------======
 // ---------------------------------------------
+@use "../functions/functions" as *;
 
 // ====---------------====
 // Media Queries
@@ -87,13 +88,13 @@ $desktop-lg-max: $desktop-xl-min - 0.001;
 
 // ===------ Range width ------===
 @mixin mobile-sm-range {
-	@media (min-width: 0) and (max-width: $mobile-sm-max) {
+	@media (min-width: 0) and (max-width: #{rem(375)}) {
 		@content;
 	}
 }
 
 @mixin mobile-lg-range {
-	@media (min-width: $mobile-lg-min) and (max-width: $mobile-lg-max) {
+	@media (min-width: #{rem(376)}) and (max-width: #{rem(767)}) {
 		@content;
 	}
 }

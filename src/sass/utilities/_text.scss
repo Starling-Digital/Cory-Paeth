@@ -44,20 +44,3 @@
 
 	list-style: none;
 }
-
-.list-inline {
-	@include desktop-min {
-		display: flex;
-		align-items: center;
-
-		li {
-			line-height: 1;
-		}
-
-		li + li {
-			margin-inline-start: 0.5rem;
-			padding-inline-start: 0.5rem;
-			border-inline-start: 1px solid var(--clr-red-400);
-		}
-	}
-}

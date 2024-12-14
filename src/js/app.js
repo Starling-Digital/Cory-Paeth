@@ -32,9 +32,14 @@ function getCompProp(compProp) {
 // ====---------------====
 // Set header height
 // ====---------------====
-const headerHeight = document.querySelector("#page-header").offsetHeight
-const footerHeight = document.querySelector("#page-footer").offsetHeight
+
 function setSizing() {
+	body.style.removeProperty("--header-height")
+	body.style.removeProperty("--footer-height")
+
+	const headerHeight = document.querySelector(".page-header").offsetHeight
+	const footerHeight = document.querySelector(".page-footer").offsetHeight
+
 	if (headerHeight && body) {
 		body.style.setProperty("--header-height", `${headerHeight}px`)
 	}
@@ -43,6 +48,10 @@ function setSizing() {
 	}
 }
 setSizing()
+
+setTimeout(() => {
+	setSizing()
+}, 50)
 
 window.addEventListener("resize", () => {
 	setSizing()

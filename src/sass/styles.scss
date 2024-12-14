@@ -13,6 +13,7 @@
 	@include meta.load-css("./global/reset");
 }
 @layer global {
+	@include meta.load-css("./global/fonts");
 	@include meta.load-css("./global/variables");
 }
 
