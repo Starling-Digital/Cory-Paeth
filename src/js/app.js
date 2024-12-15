@@ -87,7 +87,7 @@ function setActiveSection() {
 }
 
 setActiveSection()
-document.querySelector("#main-content").addEventListener("scroll", () => {
+document.querySelector(".page-wrapper").addEventListener("scroll", () => {
 	setActiveSection()
 })
 
@@ -111,8 +111,12 @@ if (modalNuts) {
 
 		modalNut.addEventListener("click", e => {
 			e.preventDefault()
-			closeAllModals()
-			modalNutModal.classList.toggle("js-active")
+			if (!modalNutModal.classList.contains("js-active")) {
+				closeAllModals()
+				modalNutModal.classList.add("js-active")
+			} else {
+				closeAllModals()
+			}
 		})
 
 		modalNutModal.querySelector(".close").addEventListener("click", e => {

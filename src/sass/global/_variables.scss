@@ -85,7 +85,7 @@
 	// ====---------------====
 	// Widths / Wrappers
 	// ====---------------====
-	--page-max-width: 90rem;
+	--page-max-width: 75rem;
 	--page-wrapper-pad: #{flClamp(20, 120)};
 	--wrapper-fluid: max(
 		var(--page-wrapper-pad),
