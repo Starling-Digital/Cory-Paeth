@@ -10,7 +10,6 @@
 .btn {
 	--btn-bg: var(--clr-neutral-800);
 	--btn-clr: var(--clr-neutral-100);
-	height: rem(80);
 	padding: flClamp(7, 14) flClamp(14, 32);
 
 	border: 0;
@@ -22,6 +21,10 @@
 	text-decoration: none;
 
 	transition: background 0.1s ease-in;
+
+	@include tablet-min {
+		height: rem(80);
+	}
 
 	cursor: pointer;
 
