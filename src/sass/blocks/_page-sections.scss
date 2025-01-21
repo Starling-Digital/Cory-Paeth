@@ -185,6 +185,12 @@
 		@include tablet-max {
 			grid-template-rows: var(--header) auto 1fr auto;
 		}
+
+		@include tablet-min {
+			grid-template-columns: var(--page-wrapper-pad) 1.5fr 1fr var(
+					--page-wrapper-pad
+				);
+		}
 	}
 
 	.image {
@@ -233,7 +239,14 @@
 
 	@include tablet-min {
 		.image {
+			justify-self: start;
 			max-width: flClamp(200, 450, 768, 1970);
+
+			grid-column: 3;
+		}
+
+		.content {
+			grid-column: 2 / 4;
 		}
 	}
 
@@ -251,6 +264,8 @@
 		@include desktop-min {
 			display: flex;
 			align-items: center;
+
+			margin-block-start: 1.5rem;
 
 			li {
 				line-height: 1;
