@@ -8,17 +8,22 @@
 @use "../functions/mixins" as *;
 
 .page-section {
+	--section-scroll-pad: #{rem(200)};
 	scroll-snap-align: start;
 
-	height: var(--page-height);
-
-	display: grid;
-	grid-template-columns: var(--grid-cols);
-	grid-template-rows: var(--grid-rows);
+	height: calc(var(--page-height) + var(--section-scroll-pad));
 
 	background-color: var(--clr-neutral-900);
 
 	color: var(--clr-neutral-100);
+
+	.inner {
+		height: calc(var(--page-height) - var(--section-scroll-pad));
+
+		display: grid;
+		grid-template-columns: var(--grid-cols);
+		grid-template-rows: var(--grid-rows);
+	}
 
 	h1,
 	h2 {
@@ -100,13 +105,15 @@
 }
 
 .section-simple {
-	@include tablet-max {
-		--footer: var(--footer-height, auto);
-		grid-template-rows: var(--header) 1fr var(--footer);
-	}
+	.inner {
+		@include tablet-max {
+			--footer: var(--footer-height, auto);
+			grid-template-rows: var(--header) 1fr var(--footer);
+		}
 
-	@include tablet-min {
-		--grid-rows: 60px 1fr 1fr var(--footer);
+		@include tablet-min {
+			--grid-rows: 60px 1fr 1fr var(--footer);
+		}
 	}
 
 	.page-header {
@@ -174,11 +181,10 @@
 .section-excellence {
 	padding-bottom: 0;
 
-	@include tablet-max {
-		grid-template-rows: var(--header) auto 1fr auto;
-	}
-
-	.content {
+	.inner {
+		@include tablet-max {
+			grid-template-rows: var(--header) auto 1fr auto;
+		}
 	}
 
 	.image {
@@ -260,17 +266,19 @@
 }
 
 .section-reliable {
-	align-items: start;
+	.inner {
+		align-items: start;
 
-	@media (max-height: 650px) {
-		grid-template-rows: var(--header) auto 1fr auto;
+		@media (max-height: 650px) {
+			grid-template-rows: var(--header) auto 1fr auto;
+		}
+
+		@include tablet-min {
+			--grid-cols: var(--page-wrapper-pad) auto 1fr
+				var(--page-wrapper-pad);
+			--grid-rows: var(--header) auto 1fr auto;
+		}
 	}
-
-	@include tablet-min {
-		--grid-cols: var(--page-wrapper-pad) auto 1fr var(--page-wrapper-pad);
-		--grid-rows: var(--header) auto 1fr auto;
-	}
-
 	.content {
 		@include tablet-min {
 			padding-block-start: flClamp(20, 40);
@@ -334,14 +342,21 @@
 }
 
 .section-problems {
-	@include tablet-max {
-		grid-template-rows: var(--header) auto 1fr auto;
-	}
+	height: var(--page-height);
 
-	@include tablet-min {
-		--grid-cols: var(--page-wrapper-pad) 1fr auto var(--page-wrapper-pad);
-		grid-template-rows: var(--header) 1fr auto;
-		align-items: center;
+	.inner {
+		height: var(--page-height);
+
+		@include tablet-max {
+			grid-template-rows: var(--header) auto 1fr auto;
+		}
+
+		@include tablet-min {
+			--grid-cols: var(--page-wrapper-pad) 1fr auto
+				var(--page-wrapper-pad);
+			grid-template-rows: var(--header) 1fr auto;
+			align-items: center;
+		}
 	}
 
 	.content {
