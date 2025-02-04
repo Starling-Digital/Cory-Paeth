@@ -193,6 +193,12 @@
 		}
 	}
 
+	.page-header {
+		@include tablet-min {
+			grid-column: 2 / 4;
+		}
+	}
+
 	.image {
 		max-width: rem(450);
 		align-self: end;
